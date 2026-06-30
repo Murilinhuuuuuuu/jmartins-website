@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+:root {
+  --brand-red: #cf111d;
+  --brand-dark: #2b2b2b;
+  --brand-light: #f5f5f5;
+  --brand-white: #ffffff;
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@theme inline {
+  --color-brand-red: var(--brand-red);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-light: var(--brand-light);
+  --color-brand-white: var(--brand-white);
+  --font-heading: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-open-sans), ui-sans-serif, system-ui, sans-serif;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--brand-white);
+  color: var(--brand-dark);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--brand-red) 15%, transparent);
+  color: var(--brand-dark);
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand-red);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background: var(--brand-red);
+  color: white;
+  border-radius: var(--radius-xl);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 1rem;
+}
+
+.section-padding {
+  padding-block: clamp(4rem, 8vw, 8rem);
+}
+
+.container-premium {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2rem);
+}
+
+.heading-display {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--brand-dark);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.card-premium {
+  border-radius: var(--radius-2xl);
+  border: 1px solid rgb(0 0 0 / 0.05);
+  background: var(--brand-white);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.04);
+  transition:
+    box-shadow 0.5s var(--ease-premium),
+    transform 0.5s var(--ease-premium),
+    border-color 0.5s var(--ease-premium);
+}
+
+.card-premium:hover {
+  box-shadow: 0 12px 40px rgb(0 0 0 / 0.08);
+  border-color: color-mix(in srgb, var(--brand-red) 20%, transparent);
+}
+
+.placeholder-stripes::before,
+.placeholder-stripes::after {
+  content: "";
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: rgb(0 0 0 / 0.06);
+}
+
+.placeholder-stripes::before {
+  top: 45%;
+}
+
+.placeholder-stripes::after {
+  top: 55%;
+}
