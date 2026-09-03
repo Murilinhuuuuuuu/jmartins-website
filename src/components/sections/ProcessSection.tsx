@@ -22,13 +22,13 @@ export function ProcessSection() {
           />
         </AnimateIn>
 
-        <AnimateIn stagger className="mt-16 flex flex-col gap-10 md:flex-row md:gap-6">
+        <AnimateIn stagger className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {processSteps.map((step, index) => (
             <AnimateItem key={step.id} className="flex-1">
               <ProcessStepCard
                 step={step}
                 isLast={index === processSteps.length - 1}
-                orientation="horizontal"
+                orientation="vertical"
               />
             </AnimateItem>
           ))}

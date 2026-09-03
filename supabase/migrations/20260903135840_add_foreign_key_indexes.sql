@@ -1,0 +1,23 @@
+create index quote_upload_tokens_quote_id_idx on private.quote_upload_tokens(quote_id);
+
+create index audit_logs_actor_id_idx on public.audit_logs(actor_id);
+create index media_library_uploaded_by_idx on public.media_library(uploaded_by);
+create index order_attachments_order_id_idx on public.order_attachments(order_id);
+create index order_items_order_id_idx on public.order_items(order_id);
+create index order_status_history_changed_by_idx on public.order_status_history(changed_by);
+create index order_status_history_order_id_idx on public.order_status_history(order_id);
+create index orders_customer_id_idx on public.orders(customer_id);
+create index product_images_product_id_idx on public.product_images(product_id);
+create index products_category_id_idx on public.products(category_id);
+create index project_images_project_id_idx on public.project_images(project_id);
+create index projects_category_id_idx on public.projects(category_id);
+create index quote_attachments_quote_id_idx on public.quote_attachments(quote_id);
+create index quote_internal_notes_author_id_idx on public.quote_internal_notes(author_id);
+create index quote_internal_notes_quote_id_idx on public.quote_internal_notes(quote_id);
+create index quote_services_service_id_idx on public.quote_services(service_id);
+create index quote_status_history_changed_by_idx on public.quote_status_history(changed_by);
+create index role_permissions_permission_id_idx on public.role_permissions(permission_id);
+create index user_roles_role_id_idx on public.user_roles(role_id);
+create index whatsapp_attachments_message_id_idx on public.whatsapp_attachments(message_id);
+create index whatsapp_conversations_customer_id_idx on public.whatsapp_conversations(customer_id);
+create index whatsapp_messages_conversation_id_idx on public.whatsapp_messages(conversation_id);

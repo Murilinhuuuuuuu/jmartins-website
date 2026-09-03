@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Camera, MapPin, Phone } from "lucide-react";
 import { navigationLinks } from "@/lib/content/navigation";
 import { contact, site } from "@/lib/content/site";
 import { Container } from "@/components/ui/Container";
@@ -16,9 +16,9 @@ export function Footer() {
             <Image
               src="/brand/logo-full.png"
               alt="JMartins Móveis"
-              width={160}
-              height={48}
-              className="h-10 w-auto brightness-0 invert"
+              width={827}
+              height={333}
+              className="h-14 w-auto object-contain brightness-0 invert"
             />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">
               {site.tagline}
@@ -68,15 +68,7 @@ export function Footer() {
                   WhatsApp: {contact.whatsapp}
                 </a>
               </li>
-              <li>
-                <a
-                  href={`mailto:${contact.email}`}
-                  className="flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-white"
-                >
-                  <Mail className="h-4 w-4 shrink-0" />
-                  {contact.email}
-                </a>
-              </li>
+              <li><a href="https://www.instagram.com/jmartins.expressao/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-white"><Camera className="h-4 w-4 shrink-0" />@jmartins.expressao</a></li>
               <li className="flex items-start gap-2 text-sm text-white/70">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
                 {contact.address}
@@ -89,9 +81,11 @@ export function Footer() {
               Horário
             </h3>
             <p className="mt-4 text-sm leading-relaxed text-white/70">
-              Segunda a sexta
+              Segunda a sábado
               <br />
               8h às 18h
+              <br />
+              Domingo: fechado
             </p>
           </div>
         </div>
@@ -103,6 +97,7 @@ export function Footer() {
           <p className="text-sm text-white/40">
             Santa Cecília, São Paulo — desde {site.foundedYear}
           </p>
+          <div className="flex gap-4 text-sm text-white/45"><Link href="/privacidade" className="hover:text-white">Privacidade</Link><Link href="/termos" className="hover:text-white">Termos</Link></div>
         </div>
       </Container>
     </footer>

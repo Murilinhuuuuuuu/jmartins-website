@@ -3,6 +3,9 @@ import { Montserrat, Open_Sans } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { AnalyticsProvider } from "@/components/analytics/AnalyticsProvider";
+import { CookieBanner } from "@/components/layout/CookieBanner";
+import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 import { contact, seo, site } from "@/lib/content/site";
 import "./globals.css";
 
@@ -21,7 +24,7 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: seo.title,
+  title: { default: seo.title, template: "%s | JMartins Móveis" },
   description: seo.description,
   keywords: seo.keywords,
   metadataBase: new URL(site.url),
@@ -62,6 +65,9 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <FloatingWhatsApp />
+        <CookieBanner />
+        <AnalyticsProvider />
       </body>
     </html>
   );

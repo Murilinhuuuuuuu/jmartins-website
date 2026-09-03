@@ -1,39 +1,39 @@
 import type { Service } from "@/types";
 
 export const servicesSection = {
-  eyebrow: "Nossos Serviços",
-  title: "Soluções completas para móveis e ambientes",
+  eyebrow: "Serviços de reforma",
+  title: "Da estrutura ao acabamento",
   description:
-    "Do escritório ao condomínio, oferecemos serviços especializados com acabamento profissional e atenção a cada detalhe.",
+    "Avaliamos cada peça e agrupamos o serviço necessário para recuperar funcionalidade, conforto e aparência.",
 };
 
 export const services: Service[] = [
   {
     id: "reforma",
-    title: "Reforma e revitalização de móveis",
+    title: "Estofamento e revestimento",
     description:
-      "Revitalização completa com pintura, troca de revestimentos e melhorias estruturais para devolver vida e valor aos seus móveis.",
+      "Troca de tecido, courvin ou couro, com opções de cores e acabamentos.",
     icon: "Paintbrush",
   },
   {
     id: "escritorio",
-    title: "Móveis para escritório",
+    title: "Espuma e conforto",
     description:
-      "Fabricação e adaptação de mobiliário corporativo sob medida, pensado para funcionalidade, conforto e identidade profissional.",
+      "Troca ou reforço de espuma para recuperar o apoio e o conforto da peça.",
     icon: "Briefcase",
   },
   {
     id: "manutencao",
-    title: "Manutenção e ajustes",
+    title: "Mecanismos e regulagens",
     description:
-      "Reparos, reforços e melhorias para aumentar a durabilidade e preservar a qualidade do seu mobiliário ao longo do tempo.",
+      "Pistões, inclinação, altura, rodízios, braços, bases e mecanismos.",
     icon: "Wrench",
   },
   {
     id: "projetos",
-    title: "Projetos personalizados",
+    title: "Estrutura e acabamento",
     description:
-      "Soluções sob medida conforme necessidade e orçamento, com atendimento personalizado do projeto à entrega.",
+      "Solda, reparo estrutural, pintura, limpeza e restauração completa.",
     icon: "Ruler",
   },
 ];

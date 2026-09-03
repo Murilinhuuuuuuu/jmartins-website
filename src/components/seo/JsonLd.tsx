@@ -3,8 +3,10 @@ import { contact, site } from "@/lib/content/site";
 export function JsonLd() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": ["LocalBusiness", "FurnitureStore"],
     name: site.name,
+    legalName: site.legalName,
+    taxID: site.cnpj,
     description: site.description,
     url: site.url,
     foundingDate: String(site.foundedYear),
@@ -13,12 +15,16 @@ export function JsonLd() {
       streetAddress: "Av. São João, 2023",
       addressLocality: "Santa Cecília",
       addressRegion: "SP",
+      postalCode: "01211-100",
       addressCountry: "BR",
     },
     telephone: contact.phone,
     email: contact.email,
     areaServed: "São Paulo",
-    priceRange: "$$",
+    sameAs: ["https://www.instagram.com/jmartins.expressao/"],
+    openingHoursSpecification: [
+      { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], opens: "08:00", closes: "18:00" },
+    ],
   };
 
   return (

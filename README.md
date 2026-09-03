@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# JMartins Móveis
 
-## Getting Started
+Plataforma web institucional e comercial da JMartins Móveis, construída com Next.js 16, TypeScript, Tailwind CSS, Supabase, PostHog e Resend.
 
-First, run the development server:
+## Rodar localmente
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Copie `.env.local.example` para `.env.local` e preencha as chaves públicas.
+2. Instale as dependências com `npm install`.
+3. Inicie o ambiente local com `npm run dev`.
+4. Acesse `http://localhost:3000`.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Verificações
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `npm run lint`
+- `npx tsc --noEmit`
+- `npm run build`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Banco de dados
 
-## Learn More
+As mudanças versionadas do Supabase ficam em `supabase/migrations`. A fundação V1 inclui RLS, permissões por função, orçamento público com protocolo, acompanhamento seguro e buckets separados por finalidade.
 
-To learn more about Next.js, take a look at the following resources:
+## Configuração externa
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Supabase: URL e chave publicável no cliente; nunca use uma chave secreta no navegador.
+- PostHog: carregado somente depois do consentimento de cookies.
+- Resend: opcional em desenvolvimento e necessário para e-mails transacionais em produção.
+- Vercel: configure as mesmas variáveis do arquivo de exemplo antes de promover para produção.

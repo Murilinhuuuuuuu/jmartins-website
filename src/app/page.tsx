@@ -1,9 +1,9 @@
 import { HeroSection } from "@/components/sections/HeroSection";
-import { AboutSection } from "@/components/sections/AboutSection";
+import { SolutionsSection } from "@/components/sections/SolutionsSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { DifferentialsSection } from "@/components/sections/DifferentialsSection";
-import { GallerySection } from "@/components/sections/GallerySection";
-import { ProcessSection } from "@/components/sections/ProcessSection";
+import { PortfolioPreviewSection } from "@/components/sections/PortfolioPreviewSection";
+import { BusinessSection } from "@/components/sections/BusinessSection";
 import { CtaSection } from "@/components/sections/CtaSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 
@@ -11,11 +11,11 @@ export default function Home() {
   return (
     <main id="conteudo-principal">
       <HeroSection />
-      <AboutSection />
+      <SolutionsSection />
       <ServicesSection />
       <DifferentialsSection />
-      <GallerySection />
-      <ProcessSection />
+      <PortfolioPreviewSection />
+      <BusinessSection />
       <CtaSection />
       <ContactSection />
     </main>

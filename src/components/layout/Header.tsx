@@ -35,13 +35,13 @@ export function Header() {
       )}
     >
       <div className="container-premium flex h-20 items-center justify-between">
-        <Link href="#inicio" className="relative z-50 shrink-0" aria-label="JMartins Móveis - Início">
+        <Link href="/" className="relative z-50 shrink-0" aria-label="JMartins Móveis - Início">
           <Image
             src="/brand/logo-full.png"
             alt="JMartins Móveis"
-            width={160}
-            height={48}
-            className="h-10 w-auto md:h-12"
+            width={827}
+            height={333}
+            className="h-12 w-auto object-contain md:h-14"
             priority
           />
         </Link>
@@ -59,8 +59,8 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:block">
-          <Button href="#contato" variant="primary">
-            Solicite um orçamento
+          <Button href="/orcamento" variant="primary">
+            Solicitar orçamento
           </Button>
         </div>
 
@@ -97,11 +97,11 @@ export function Header() {
             </Link>
           ))}
           <Link
-            href="#contato"
+            href="/orcamento"
             onClick={() => setIsOpen(false)}
             className="inline-flex items-center justify-center rounded-xl bg-brand-red px-6 py-3.5 font-heading text-sm font-bold tracking-wide text-white transition-all hover:bg-brand-red/90"
           >
-            Solicite um orçamento
+            Solicitar orçamento
           </Link>
         </nav>
       </div>

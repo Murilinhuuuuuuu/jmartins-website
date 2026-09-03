@@ -12,6 +12,18 @@
 
 # testing
 /coverage
+/tmp
+/public/media/portfolio/page-01-image-01.png
+/public/media/portfolio/page-01-image-02.jpg
+/public/media/portfolio/page-01-image-03.png
+/public/media/portfolio/page-02-image-01.png
+/public/media/portfolio/page-02-image-02.png
+/public/media/portfolio/page-03-image-01.png
+/public/media/portfolio/page-04-image-01.png
+/public/media/portfolio/page-04-image-04.png
+/public/media/portfolio/page-04-image-08.png
+/public/media/portfolio/page-05-image-01.png
+/public/media/portfolio/page-05-image-03.png
 
 # next.js
 /.next/
@@ -32,6 +44,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.local.example
 
 # vercel
 .vercel

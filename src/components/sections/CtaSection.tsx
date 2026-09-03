@@ -5,20 +5,19 @@ import { cta } from "@/lib/content/site";
 
 export function CtaSection() {
   return (
-    <section className="bg-brand-red section-padding" aria-label="Chamada para ação">
+    <section className="border-y border-black/5 bg-brand-light section-padding" aria-label="Chamada para ação">
       <Container>
         <AnimateIn className="mx-auto max-w-3xl text-center">
-          <h2 className="heading-display text-balance text-3xl text-white md:text-4xl">
+          <h2 className="heading-display text-balance text-3xl md:text-4xl">
             {cta.title}
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-white/80">
+          <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-brand-dark/70">
             {cta.description}
           </p>
           <div className="mt-10">
             <Button
-              href="#contato"
-              variant="secondary"
-              className="border-white/30 bg-white text-brand-red hover:border-white hover:bg-white/90 hover:text-brand-red"
+              href="/orcamento"
+              variant="primary"
             >
               {cta.button}
             </Button>

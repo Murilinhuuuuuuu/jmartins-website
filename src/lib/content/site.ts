@@ -3,23 +3,25 @@ import type { ContactInfo } from "@/types";
 export const site = {
   name: "JMartins Móveis",
   shortName: "JMartins",
-  tagline: "Transformamos móveis. Renovamos ambientes. Valorizamos espaços.",
+  legalName: "J. MARTINS MOVEIS LTDA",
+  cnpj: "69.338.507/0001-56",
+  tagline: "Desde 1988, tradição, qualidade e cuidado em cada móvel.",
   foundedYear: 1988,
-  experienceYears: "30+",
+  founder: "João Serafim de Melo",
   description:
-    "Empresa familiar especializada em móveis, reformas e revitalização de ambientes corporativos e condominiais em São Paulo.",
+    "Empresa familiar especializada em reforma e venda de cadeiras e mobiliário em São Paulo, com oficina e execução próprias.",
   locale: "pt_BR",
-  url: "https://jmartinsmoveis.com.br",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
 } as const;
 
 export const contact: ContactInfo = {
   phone: "(11) 3825-8297",
   phoneHref: "tel:+551138258297",
-  whatsapp: "(11) 94825-0380",
-  whatsappHref: "https://wa.me/5511948250380",
+  whatsapp: "(11) 3825-8297",
+  whatsappHref: "https://wa.me/551138258297",
   email: "jmartins.expressao@gmail.com",
-  address: "Av. São João, 2023 — Santa Cecília, São Paulo",
-  addressLine: "Av. São João, 2023, Santa Cecília, São Paulo, SP",
+  address: "Av. São João, 2023 — Santa Cecília — São Paulo/SP — CEP 01211-100",
+  addressLine: "Av. São João, 2023, Santa Cecília, São Paulo, SP, 01211-100",
 };
 
 export const about = {
@@ -38,25 +40,25 @@ export const about = {
 };
 
 export const hero = {
-  eyebrow: "Tradição desde 1988",
-  title: "Móveis e reformas com excelência em São Paulo",
+  eyebrow: "Desde 1988",
+  title: "Cadeiras renovadas. Conforto recuperado.",
   subtitle:
-    "Há mais de três décadas transformamos móveis, renovamos ambientes e valorizamos espaços com acabamento profissional e atendimento personalizado.",
-  primaryCta: "Solicite um orçamento",
-  secondaryCta: "Conheça nossos serviços",
+    "Reforma e venda de cadeiras com tradição, qualidade e atendimento próximo desde 1988.",
+  primaryCta: "Solicitar orçamento",
+  secondaryCta: "Falar no WhatsApp",
 };
 
 export const cta = {
-  title: "Pronto para transformar seu ambiente?",
+  title: "Seu móvel pode ter solução.",
   description:
-    "Entre em contato e receba um atendimento personalizado. Estamos prontos para revitalizar seus móveis e valorizar seus espaços.",
-  button: "Solicite um orçamento",
+    "Envie as informações da peça ou conte que tipo de cadeira procura. A equipe avalia e orienta o próximo passo.",
+  button: "Solicitar orçamento",
 };
 
 export const seo = {
-  title: "JMartins Móveis | Reforma e Móveis sob Medida em São Paulo",
+  title: "JMartins Móveis | Reforma e Venda de Cadeiras em São Paulo",
   description:
-    "Empresa familiar desde 1988. Reforma e revitalização de móveis, móveis para escritório, manutenção e projetos personalizados em Santa Cecília, SP.",
+    "Reforma e venda de cadeiras em São Paulo desde 1988. Atendimento para pessoas, empresas e condomínios. Solicite um orçamento.",
   keywords: [
     "reforma de móveis",
     "móveis sob medida",

@@ -2,7 +2,7 @@ import type { Differential } from "@/types";
 
 export const differentialsSection = {
   eyebrow: "Diferenciais",
-  title: "Por que escolher a JMartins",
+  title: "Experiência que continua se renovando",
   description:
     "Mais de três décadas de experiência aliadas a um compromisso inegociável com qualidade e atendimento.",
 };
@@ -10,7 +10,7 @@ export const differentialsSection = {
 export const differentials: Differential[] = [
   {
     id: "experiencia",
-    title: "Mais de 30 anos de experiência",
+    title: "Desde 1988",
     description:
       "Tradição consolidada desde 1988 no mercado de móveis e reformas em São Paulo.",
     icon: "Award",
@@ -24,30 +24,30 @@ export const differentials: Differential[] = [
   },
   {
     id: "acabamento",
-    title: "Acabamento profissional",
+    title: "Trabalho artesanal",
     description:
-      "Qualidade artesanal em cada detalhe, com materiais selecionados e execução impecável.",
+      "Cuidado na avaliação, na execução e no acabamento de cada peça.",
     icon: "Sparkles",
   },
   {
     id: "prazos",
-    title: "Compromisso com prazos",
+    title: "Prazo transparente",
     description:
-      "Respeitamos cronogramas acordados, garantindo entregas dentro do combinado.",
+      "O prazo definitivo é informado depois da avaliação, conforme o serviço e a quantidade.",
     icon: "Clock",
   },
   {
     id: "medida",
-    title: "Projetos sob medida",
+    title: "Oficina própria",
     description:
-      "Soluções personalizadas que se adaptam perfeitamente ao seu espaço e orçamento.",
+      "Os serviços são executados internamente, sem terceirização.",
     icon: "PenTool",
   },
   {
     id: "qualidade",
-    title: "Qualidade garantida",
+    title: "Preço justo",
     description:
-      "Compromisso com a excelência em cada etapa, do orçamento à entrega final.",
+      "Boa relação entre custo-benefício, durabilidade e qualidade do serviço.",
     icon: "ShieldCheck",
   },
 ];
