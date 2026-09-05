@@ -3,9 +3,11 @@
 import Image from "next/image";
 import { Building2, MessageCircle, RefreshCcw, ShoppingBag } from "lucide-react";
 import { AnimateIn } from "@/components/ui/AnimateIn";
+import { TrackedWhatsAppButton } from "@/components/analytics/TrackedWhatsAppButton";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { hero } from "@/lib/content/site";
+import { buildDefaultWhatsAppUrl } from "@/lib/whatsapp";
 
 export function HeroSection() {
   return (
@@ -31,14 +33,14 @@ export function HeroSection() {
               <Button href="/orcamento" variant="primary">
                 {hero.primaryCta}
               </Button>
-              <Button
-                href="https://wa.me/551138258297?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20com%20a%20JMartins%20M%C3%B3veis."
+              <TrackedWhatsAppButton
+                href={buildDefaultWhatsAppUrl()}
+                context="home_hero"
                 variant="secondary"
-                external
               >
                 <MessageCircle className="h-4 w-4" />
                 {hero.secondaryCta}
-              </Button>
+              </TrackedWhatsAppButton>
             </div>
             <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-brand-dark/65">
               <li className="inline-flex items-center gap-2"><RefreshCcw className="h-4 w-4 text-brand-red" /> Reforma</li>

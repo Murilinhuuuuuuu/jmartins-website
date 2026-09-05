@@ -8,6 +8,7 @@ interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
   variant?: ButtonVariant;
   href?: string;
   external?: boolean;
+  onLinkClick?: ComponentPropsWithoutRef<"a">["onClick"];
 }
 
 const variants: Record<ButtonVariant, string> = {
@@ -23,6 +24,7 @@ export function Button({
   variant = "primary",
   href,
   external,
+  onLinkClick,
   children,
   ...props
 }: ButtonProps) {
@@ -40,6 +42,7 @@ export function Button({
           className={classes}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={onLinkClick}
         >
           {children}
         </a>
@@ -47,7 +50,7 @@ export function Button({
     }
 
     return (
-      <Link href={href} className={classes}>
+      <Link href={href} className={classes} onClick={onLinkClick}>
         {children}
       </Link>
     );

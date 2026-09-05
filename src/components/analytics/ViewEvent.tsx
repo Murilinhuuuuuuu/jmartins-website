@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { trackEvent } from "@/components/analytics/AnalyticsProvider";
+import { analyticsReadyEvent, trackEvent } from "@/components/analytics/AnalyticsProvider";
 
 export function ViewEvent({
   name,
@@ -13,9 +13,14 @@ export function ViewEvent({
   const capturedRef = useRef(false);
 
   useEffect(() => {
-    if (capturedRef.current) return;
-    capturedRef.current = true;
-    trackEvent(name, properties);
+    const capture = () => {
+      if (capturedRef.current) return;
+      capturedRef.current = trackEvent(name, properties);
+    };
+
+    capture();
+    window.addEventListener(analyticsReadyEvent, capture);
+    return () => window.removeEventListener(analyticsReadyEvent, capture);
   }, [name, properties]);
 
   return null;

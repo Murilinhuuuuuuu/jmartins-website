@@ -4,8 +4,9 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { ArrowLeft, ArrowRight, Check, FileUp, MessageCircle, PackageSearch, RefreshCcw } from "lucide-react";
+import { analyticsReadyEvent, trackEvent } from "@/components/analytics/AnalyticsProvider";
+import { TrackedWhatsAppButton } from "@/components/analytics/TrackedWhatsAppButton";
 import { Button } from "@/components/ui/Button";
-import { trackEvent } from "@/components/analytics/AnalyticsProvider";
 import { quoteSchema } from "@/features/quotes/schema";
 import { buildQuoteWhatsAppUrl } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
@@ -62,9 +63,14 @@ export function QuoteWizard({ initialType = "repair" }: { initialType?: "repair"
   }, [subscribe]);
 
   useEffect(() => {
-    if (startedRef.current) return;
-    startedRef.current = true;
-    trackEvent("quote_started", { quote_type: initialType });
+    const captureStarted = () => {
+      if (startedRef.current) return;
+      startedRef.current = trackEvent("quote_started", { quote_type: initialType });
+    };
+
+    captureStarted();
+    window.addEventListener(analyticsReadyEvent, captureStarted);
+    return () => window.removeEventListener(analyticsReadyEvent, captureStarted);
   }, [initialType]);
 
   const progress = useMemo(() => `${step * 20}%`, [step]);
@@ -118,7 +124,7 @@ export function QuoteWizard({ initialType = "repair" }: { initialType?: "repair"
     finally { setSubmitting(false); }
   }
 
-  if (protocol) return <div className="mx-auto max-w-2xl rounded-3xl border border-black/5 bg-white p-8 text-center shadow-xl sm:p-12"><span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50 text-emerald-700"><Check className="h-8 w-8" /></span><p className="mt-6 font-heading text-sm font-bold uppercase tracking-[0.18em] text-brand-red">Solicitação recebida!</p><h2 className="heading-display mt-3 text-3xl">Seu protocolo é {protocol}.</h2><p className="mt-5 text-brand-dark/65">Nossa equipe analisará sua solicitação e retornará em até 24 horas.</p>{message && <p className="mt-4 text-sm text-amber-700">{message}</p>}<div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row"><Button href={buildQuoteWhatsAppUrl(protocol)} external><MessageCircle className="h-4 w-4" />Continuar pelo WhatsApp</Button><Button href="/acompanhar" variant="secondary">Acompanhar solicitação</Button></div></div>;
+  if (protocol) return <div className="mx-auto max-w-2xl rounded-3xl border border-black/5 bg-white p-8 text-center shadow-xl sm:p-12"><span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50 text-emerald-700"><Check className="h-8 w-8" /></span><p className="mt-6 font-heading text-sm font-bold uppercase tracking-[0.18em] text-brand-red">Solicitação recebida!</p><h2 className="heading-display mt-3 text-3xl">Seu protocolo é {protocol}.</h2><p className="mt-5 text-brand-dark/65">Nossa equipe analisará sua solicitação e retornará em até 24 horas.</p>{message && <p className="mt-4 text-sm text-amber-700">{message}</p>}<div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row"><TrackedWhatsAppButton href={buildQuoteWhatsAppUrl(protocol)} context="quote_success"><MessageCircle className="h-4 w-4" />Continuar pelo WhatsApp</TrackedWhatsAppButton><Button href="/acompanhar" variant="secondary">Acompanhar solicitação</Button></div></div>;
 
   return (
     <form onSubmit={handleSubmit(submit)} className="mx-auto max-w-4xl" noValidate>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Camera, Clock3, MapPin, MessageCircle, Phone, type LucideIcon } from "lucide-react";
+import { TrackedWhatsAppButton } from "@/components/analytics/TrackedWhatsAppButton";
 import { AnimateIn } from "@/components/ui/AnimateIn";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -22,7 +23,7 @@ export function ContactSection() {
               <ContactItem icon={Clock3} label="Horário" value="Segunda a sábado, 8h às 18h" />
               <ContactItem icon={Camera} label="Instagram" value="@jmartins.expressao" href="https://www.instagram.com/jmartins.expressao/" />
             </div>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row"><Button href="/orcamento">Solicitar orçamento</Button><Button href={buildDefaultWhatsAppUrl()} external variant="secondary"><MessageCircle className="h-4 w-4" />Falar no WhatsApp</Button></div>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row"><Button href="/orcamento">Solicitar orçamento</Button><TrackedWhatsAppButton href={buildDefaultWhatsAppUrl()} context="contact_section" variant="secondary"><MessageCircle className="h-4 w-4" />Falar no WhatsApp</TrackedWhatsAppButton></div>
             <div className="mt-8 overflow-hidden rounded-2xl border border-black/5"><iframe title="Mapa da JMartins Móveis" src="https://maps.google.com/maps?q=Av.+S%C3%A3o+Jo%C3%A3o,+2023,+Santa+Cec%C3%ADlia,+S%C3%A3o+Paulo&output=embed" className="h-52 w-full grayscale-[25%]" loading="lazy" referrerPolicy="no-referrer-when-downgrade" /></div>
           </div>
         </div>
