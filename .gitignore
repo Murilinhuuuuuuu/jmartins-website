@@ -13,6 +13,7 @@
 # testing
 /coverage
 /tmp
+/supabase/.temp
 /public/media/portfolio/page-01-image-01.png
 /public/media/portfolio/page-01-image-02.jpg
 /public/media/portfolio/page-01-image-03.png
