@@ -1,5 +1,9 @@
 import type { ContactInfo } from "@/types";
 
+const deploymentUrl = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : undefined;
+
 export const site = {
   name: "JMartins Móveis",
   shortName: "JMartins",
@@ -11,7 +15,10 @@ export const site = {
   description:
     "Empresa familiar especializada em reforma e venda de cadeiras e mobiliário em São Paulo, com oficina e execução próprias.",
   locale: "pt_BR",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    deploymentUrl ??
+    "http://localhost:3000",
 } as const;
 
 export const contact: ContactInfo = {
