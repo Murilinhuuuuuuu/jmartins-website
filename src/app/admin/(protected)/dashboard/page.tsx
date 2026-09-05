@@ -6,7 +6,7 @@ import {
   Clock3,
   Wrench,
 } from "lucide-react";
-import { createClient } from "@/lib/supabase/server";
+import { requireAdmin } from "@/lib/admin/auth";
 import {
   formatDateTime,
   quoteStatusClasses,
@@ -26,7 +26,7 @@ type RecentQuote = {
 };
 
 async function getDashboardData() {
-  const supabase = await createClient();
+  const { supabase } = await requireAdmin();
   const [newQuotes, activeQuotes, approvedQuotes, completedQuotes, recentQuotes] =
     await Promise.all([
       supabase.from("quotes").select("id", { count: "exact", head: true }).eq("status", "new"),

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ClipboardList, Search } from "lucide-react";
-import { createClient } from "@/lib/supabase/server";
+import { requireAdmin } from "@/lib/admin/auth";
 import {
   formatDateTime,
   isQuoteStatus,
@@ -38,7 +38,7 @@ export default async function QuotesPage({
   const params = await searchParams;
   const search = params.busca?.trim().toLocaleLowerCase("pt-BR") ?? "";
   const selectedStatus = params.status && isQuoteStatus(params.status) ? params.status : "";
-  const supabase = await createClient();
+  const { supabase } = await requireAdmin();
 
   let query = supabase
     .from("quotes")

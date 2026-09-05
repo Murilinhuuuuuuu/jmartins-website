@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import { AdminSubmitButton } from "@/components/admin/AdminSubmitButton";
 import { addQuoteNote, updateQuoteStatus } from "@/app/admin/(protected)/actions";
-import { createClient } from "@/lib/supabase/server";
+import { requireAdmin } from "@/lib/admin/auth";
 import {
   formatDate,
   formatDateTime,
@@ -106,7 +106,7 @@ export default async function QuoteDetailPage({
 }) {
   const { id } = await params;
   const { sucesso } = await searchParams;
-  const supabase = await createClient();
+  const { supabase } = await requireAdmin();
 
   const [quoteResult, attachmentResult, noteResult, historyResult] = await Promise.all([
     supabase

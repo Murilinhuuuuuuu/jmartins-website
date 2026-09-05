@@ -1,7 +1,10 @@
+import { cache } from "react";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 
-export async function requireAdmin(permission = "admin.access") {
+export const requireAdmin = cache(async function requireAdmin(
+  permission = "admin.access",
+) {
   if (
     !process.env.NEXT_PUBLIC_SUPABASE_URL ||
     !process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
@@ -33,4 +36,4 @@ export async function requireAdmin(permission = "admin.access") {
         ? claims.claims.email
         : "Equipe JMartins",
   };
-}
+});
