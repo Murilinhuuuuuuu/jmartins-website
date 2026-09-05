@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat, Open_Sans } from "next/font/google";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { AnalyticsProvider } from "@/components/analytics/AnalyticsProvider";
-import { CookieBanner } from "@/components/layout/CookieBanner";
-import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
+import { SiteChrome } from "@/components/layout/SiteChrome";
 import { contact, seo, site } from "@/lib/content/site";
 import "./globals.css";
 
@@ -62,12 +58,7 @@ export default function RootLayout({
         <a href="#conteudo-principal" className="skip-link">
           Ir para o conteúdo
         </a>
-        <Header />
-        {children}
-        <Footer />
-        <FloatingWhatsApp />
-        <CookieBanner />
-        <AnalyticsProvider />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );

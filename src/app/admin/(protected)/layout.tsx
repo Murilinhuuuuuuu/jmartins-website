@@ -1,11 +1,7 @@
-import { redirect } from "next/navigation";
-import { createClient } from "@/lib/supabase/server";
+import { AdminShell } from "@/components/admin/AdminShell";
+import { requireAdmin } from "@/lib/admin/auth";
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
-  const supabase = await createClient();
-  const { data: claims } = await supabase.auth.getClaims();
-  if (!claims?.claims) redirect("/admin/login");
-  const { data: allowed } = await supabase.rpc("current_user_can", { required_permission: "admin.access" });
-  if (!allowed) redirect("/admin/login?erro=permissao");
-  return children;
+  const { email } = await requireAdmin();
+  return <AdminShell userLabel={email}>{children}</AdminShell>;
 }
