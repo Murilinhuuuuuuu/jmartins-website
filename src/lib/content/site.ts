@@ -4,6 +4,11 @@ const deploymentUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : undefined;
 
+const productionUrl =
+  process.env.VERCEL_ENV === "production"
+    ? "https://www.jmartinsmoveis.com.br"
+    : deploymentUrl;
+
 export const allowIndexing = process.env.VERCEL_ENV
   ? process.env.VERCEL_ENV === "production"
   : process.env.NODE_ENV !== "production";
@@ -21,7 +26,7 @@ export const site = {
   locale: "pt_BR",
   url:
     process.env.NEXT_PUBLIC_SITE_URL ??
-    deploymentUrl ??
+    productionUrl ??
     "http://localhost:3000",
 } as const;
 
