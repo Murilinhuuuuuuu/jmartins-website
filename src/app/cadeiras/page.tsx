@@ -10,5 +10,5 @@ export const metadata: Metadata = {
 };
 
 export default function ChairsPage() {
-  return <main id="conteudo-principal"><PageHero eyebrow="Catálogo" title="Cadeiras para trabalhar, receber e viver melhor" description="Explore categorias de referência e converse com a equipe sobre modelos, condições e disponibilidade. Não exibimos preços porque cada atendimento é consultivo." /><section className="section-padding bg-white"><Container><ProductCatalog /></Container></section></main>;
+  return <main id="conteudo-principal"><PageHero eyebrow="Catálogo" title="Cadeiras para trabalhar, receber e viver melhor" description="Explore categorias de referência e converse com a equipe sobre modelos, condições e disponibilidade. Não exibimos preços porque cada atendimento é consultivo." image={{ src: "/media/illustrative/cadeiras-ambiente.webp", alt: "Composição ilustrativa de cadeiras estofadas em um ambiente contemporâneo", caption: "Imagem ilustrativa · consulte modelos disponíveis" }} /><section className="section-padding bg-white"><Container><ProductCatalog /></Container></section></main>;
 }

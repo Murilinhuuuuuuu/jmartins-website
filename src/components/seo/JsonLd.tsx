@@ -19,7 +19,6 @@ export function JsonLd() {
       addressCountry: "BR",
     },
     telephone: contact.phone,
-    email: contact.email,
     areaServed: "São Paulo",
     sameAs: ["https://www.instagram.com/jmartins.expressao/"],
     openingHoursSpecification: [

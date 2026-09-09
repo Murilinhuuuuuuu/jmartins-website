@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 
 interface SectionHeadingProps {
+  id?: string;
   eyebrow?: string;
   title: string;
   description?: string;
@@ -9,6 +10,7 @@ interface SectionHeadingProps {
 }
 
 export function SectionHeading({
+  id,
   eyebrow,
   title,
   description,
@@ -28,7 +30,7 @@ export function SectionHeading({
           {eyebrow}
         </p>
       )}
-      <h2 className="heading-display text-balance text-3xl md:text-4xl">
+      <h2 id={id} className="heading-display text-balance text-3xl md:text-4xl">
         {title}
       </h2>
       {description && (

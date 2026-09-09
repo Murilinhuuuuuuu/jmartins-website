@@ -17,7 +17,16 @@ const furnitureTypes = ["Cadeira de escritório", "Executiva", "Presidente", "Se
 export default function RepairsPage() {
   return (
     <main id="conteudo-principal">
-      <PageHero eyebrow="Reformas" title="Reforma de cadeiras e móveis em São Paulo" description="Da estrutura ao acabamento, a JMartins recupera conforto, funcionalidade e aparência." />
+      <PageHero
+        eyebrow="Reformas"
+        title="Reforma de cadeiras e móveis em São Paulo"
+        description="Da estrutura ao acabamento, a JMartins recupera conforto, funcionalidade e aparência."
+        image={{
+          src: "/media/illustrative/oficina-restauracao.webp",
+          alt: "Cadeira em processo de restauração em uma oficina de estofamento",
+          caption: "Imagem de ambientação ilustrativa",
+        }}
+      />
 
       <section className="section-padding bg-white">
         <Container>

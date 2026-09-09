@@ -47,7 +47,6 @@ export interface ContactInfo {
   phoneHref: string;
   whatsapp: string;
   whatsappHref: string;
-  email: string;
   address: string;
   addressLine: string;
 }

@@ -9,6 +9,7 @@ import { Header } from "@/components/layout/Header";
 
 export function SiteChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const hideFloatingWhatsApp = pathname === "/orcamento" || pathname === "/acompanhar";
 
   if (pathname.startsWith("/admin")) {
     return children;
@@ -19,7 +20,7 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
       <Header />
       {children}
       <Footer />
-      <FloatingWhatsApp />
+      {!hideFloatingWhatsApp && <FloatingWhatsApp />}
       <CookieBanner />
       <AnalyticsProvider />
     </>

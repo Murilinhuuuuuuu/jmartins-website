@@ -9,31 +9,59 @@ export const servicesSection = {
 
 export const services: Service[] = [
   {
-    id: "reforma",
+    id: "estofamento",
     title: "Estofamento e revestimento",
     description:
       "Troca de tecido, courvin ou couro, com opções de cores e acabamentos.",
     icon: "Paintbrush",
   },
   {
-    id: "escritorio",
+    id: "espuma",
     title: "Espuma e conforto",
     description:
       "Troca ou reforço de espuma para recuperar o apoio e o conforto da peça.",
     icon: "Briefcase",
   },
   {
-    id: "manutencao",
-    title: "Mecanismos e regulagens",
+    id: "pistoes",
+    title: "Pistões e regulagens",
     description:
-      "Pistões, inclinação, altura, rodízios, braços, bases e mecanismos.",
+      "Avaliação de pistão, inclinação e regulagem de altura para recuperar o uso correto.",
     icon: "Wrench",
   },
   {
-    id: "projetos",
-    title: "Estrutura e acabamento",
+    id: "componentes",
+    title: "Rodízios, braços e bases",
     description:
-      "Solda, reparo estrutural, pintura, limpeza e restauração completa.",
+      "Troca ou reparo de componentes conforme o modelo e a disponibilidade de peças.",
     icon: "Ruler",
+  },
+  {
+    id: "mecanismos",
+    title: "Mecanismos",
+    description:
+      "Diagnóstico e manutenção de mecanismos de cadeiras para recuperar movimento e estabilidade.",
+    icon: "PenTool",
+  },
+  {
+    id: "estrutura",
+    title: "Estrutura e solda",
+    description:
+      "Reparo estrutural em metal ou madeira, solda e avaliação de peças plásticas.",
+    icon: "Wrench",
+  },
+  {
+    id: "acabamento",
+    title: "Pintura e acabamento",
+    description:
+      "Pintura, revitalização estética e cuidado nos detalhes finais da peça.",
+    icon: "Paintbrush",
+  },
+  {
+    id: "restauracao",
+    title: "Restauração completa",
+    description:
+      "Combinação de reparos, limpeza, higienização e acabamento após avaliação completa.",
+    icon: "Sparkles",
   },
 ];

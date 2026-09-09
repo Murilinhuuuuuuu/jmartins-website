@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat, Open_Sans } from "next/font/google";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { SiteChrome } from "@/components/layout/SiteChrome";
-import { contact, seo, site } from "@/lib/content/site";
+import { allowIndexing, contact, seo, site } from "@/lib/content/site";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -31,16 +31,24 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     type: "website",
     siteName: site.name,
+    images: [
+      {
+        url: "/media/illustrative/cadeiras-ambiente.webp",
+        alt: "Cadeiras da linha JMartins em ambiente ilustrativo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: seo.title,
     description: seo.description,
   },
-  robots: { index: true, follow: true },
+  robots: { index: allowIndexing, follow: allowIndexing },
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+    : undefined,
   other: {
     "contact:phone_number": contact.phone,
-    "contact:email": contact.email,
   },
 };
 

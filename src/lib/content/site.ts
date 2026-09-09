@@ -4,6 +4,10 @@ const deploymentUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : undefined;
 
+export const allowIndexing = process.env.VERCEL_ENV
+  ? process.env.VERCEL_ENV === "production"
+  : process.env.NODE_ENV !== "production";
+
 export const site = {
   name: "JMartins Móveis",
   shortName: "JMartins",
@@ -26,23 +30,22 @@ export const contact: ContactInfo = {
   phoneHref: "tel:+551138258297",
   whatsapp: "(11) 3825-8297",
   whatsappHref: "https://wa.me/551138258297",
-  email: "jmartins.expressao@gmail.com",
   address: "Av. São João, 2023 — Santa Cecília — São Paulo/SP — CEP 01211-100",
   addressLine: "Av. São João, 2023, Santa Cecília, São Paulo, SP, 01211-100",
 };
 
 export const about = {
-  eyebrow: "Sobre a JMartins",
-  title: "Tradição, qualidade e compromisso desde 1988",
+  eyebrow: "Desde 1988",
+  title: "Uma empresa familiar que une experiência e renovação",
   paragraphs: [
-    "Desde 1988, a JMartins atua no mercado de móveis e reformas com tradição, qualidade e compromisso.",
-    "Somos uma empresa familiar localizada em Santa Cecília (SP), especializada na modernização de móveis e ambientes corporativos e condominiais.",
-    "Com mais de 30 anos de experiência, entregamos soluções personalizadas, acabamento profissional e respeito aos prazos.",
+    "A história da JMartins começou em 1988, em Santa Cecília, São Paulo, com João Serafim de Melo.",
+    "Ao longo dos anos, a empresa permaneceu familiar e construiu sua trajetória com atenção à qualidade, ao trabalho artesanal e ao relacionamento com os clientes.",
+    "Hoje, João continua à frente do negócio ao lado de sua família, preservando a tradição enquanto a JMartins incorpora novas formas de atender pessoas e empresas.",
   ],
   stats: [
-    { value: "1988", label: "Ano de fundação" },
-    { value: "+30", label: "Anos de experiência" },
-    { value: "100%", label: "Compromisso com qualidade" },
+    { value: "1988", label: "Início da história" },
+    { value: "+35", label: "Anos de trajetória" },
+    { value: "SP", label: "Capital e outras regiões" },
   ],
 };
 

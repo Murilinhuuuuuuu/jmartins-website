@@ -6,16 +6,20 @@ import { PortfolioPreviewSection } from "@/components/sections/PortfolioPreviewS
 import { BusinessSection } from "@/components/sections/BusinessSection";
 import { CtaSection } from "@/components/sections/CtaSection";
 import { ContactSection } from "@/components/sections/ContactSection";
+import { AboutSection } from "@/components/sections/AboutSection";
+import { FeaturedProductsSection } from "@/components/sections/FeaturedProductsSection";
 
 export default function Home() {
   return (
     <main id="conteudo-principal">
       <HeroSection />
       <SolutionsSection />
-      <ServicesSection />
-      <DifferentialsSection />
+      <AboutSection />
       <PortfolioPreviewSection />
+      <ServicesSection />
+      <FeaturedProductsSection />
       <BusinessSection />
+      <DifferentialsSection />
       <CtaSection />
       <ContactSection />
     </main>

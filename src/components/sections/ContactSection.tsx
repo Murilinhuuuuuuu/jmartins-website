@@ -8,12 +8,12 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { contact } from "@/lib/content/site";
 import { buildDefaultWhatsAppUrl } from "@/lib/whatsapp";
 
-export function ContactSection() {
+export function ContactSection({ showIntro = true }: { showIntro?: boolean }) {
   return (
-    <section id="contato" className="section-padding bg-white" aria-labelledby="contato-title">
+    <section id="contato" className={showIntro ? "section-padding bg-white" : "bg-white py-10 sm:py-14"} aria-labelledby="contato-title">
       <Container>
-        <AnimateIn><SectionHeading eyebrow="Visite ou fale com a gente" title="Atendimento próximo, em Santa Cecília" description="Segunda a sábado, das 8h às 18h. Domingo, fechado." align="center" className="mx-auto" /></AnimateIn>
-        <div className="mt-12 grid overflow-hidden rounded-3xl border border-black/5 bg-brand-light lg:grid-cols-2">
+        {showIntro && <AnimateIn><SectionHeading eyebrow="Visite ou fale com a gente" title="Atendimento próximo, em Santa Cecília" description="Segunda a sábado, das 8h às 18h. Domingo, fechado." align="center" className="mx-auto" /></AnimateIn>}
+        <div className={showIntro ? "mt-12 grid overflow-hidden rounded-3xl border border-black/5 bg-brand-light lg:grid-cols-2" : "grid overflow-hidden rounded-3xl border border-black/5 bg-brand-light lg:grid-cols-2"}>
           <div className="relative min-h-80 lg:min-h-[34rem]"><Image src="/media/portfolio/page-05-image-02.png" alt="Fachada da JMartins na Avenida São João" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" /></div>
           <div className="p-7 sm:p-10 lg:p-12">
             <h2 id="contato-title" className="sr-only">Contato e localização</h2>

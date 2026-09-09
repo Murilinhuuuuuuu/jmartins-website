@@ -7,5 +7,5 @@ export const metadata: Metadata = { title: "Solicitar orçamento", description: 
 
 export default async function QuotePage({ searchParams }: { searchParams: Promise<{ tipo?: string }> }) {
   const type = (await searchParams).tipo === "compra" ? "purchase" : "repair";
-  return <main id="conteudo-principal"><PageHero eyebrow="Orçamento" title="Conte o que você precisa, em poucos passos" description="O formulário mostra apenas as perguntas necessárias e mantém seus dados quando você volta uma etapa." /><section className="section-padding bg-brand-light"><Container><QuoteWizard initialType={type} /></Container></section></main>;
+  return <main id="conteudo-principal"><PageHero compact eyebrow="Orçamento" title="Conte o que você precisa, em poucos passos" description="O formulário mostra apenas as perguntas necessárias e mantém seus dados quando você volta uma etapa." /><section className="bg-brand-light py-10 sm:py-14"><Container><QuoteWizard initialType={type} /></Container></section></main>;
 }

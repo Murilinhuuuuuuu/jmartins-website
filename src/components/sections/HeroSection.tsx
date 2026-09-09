@@ -1,9 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { Building2, MessageCircle, RefreshCcw, ShoppingBag } from "lucide-react";
-import { AnimateIn } from "@/components/ui/AnimateIn";
+import {
+  Building2,
+  MessageCircle,
+  RefreshCcw,
+  ShieldCheck,
+  ShoppingBag,
+} from "lucide-react";
 import { TrackedWhatsAppButton } from "@/components/analytics/TrackedWhatsAppButton";
+import { AnimateIn } from "@/components/ui/AnimateIn";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { hero } from "@/lib/content/site";
@@ -16,20 +22,20 @@ export function HeroSection() {
       className="relative overflow-hidden bg-white pt-20"
       aria-label="Apresentação"
     >
-      <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[46%] bg-[radial-gradient(circle_at_62%_42%,rgba(207,17,29,0.10),transparent_58%)] lg:block" />
-      <Container className="hero-padding relative">
-        <div className="grid min-h-[calc(100svh-5rem)] items-center gap-12 lg:grid-cols-[0.88fr_1.12fr] lg:gap-10">
+      <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 bg-[radial-gradient(circle_at_65%_42%,rgba(207,17,29,0.11),transparent_62%)] lg:block" />
+      <Container className="relative py-12 sm:py-16 lg:py-20">
+        <div className="grid items-center gap-12 lg:min-h-[calc(100svh-10rem)] lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
           <AnimateIn>
             <p className="mb-4 font-heading text-sm font-bold uppercase tracking-[0.15em] text-brand-red">
               {hero.eyebrow}
             </p>
-            <h1 className="heading-display text-balance text-5xl sm:text-6xl lg:text-[4.4rem]">
+            <h1 className="heading-display text-balance text-5xl sm:text-6xl lg:text-[4.35rem]">
               {hero.title}
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-brand-dark/70">
               {hero.subtitle}
             </p>
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Button href="/orcamento" variant="primary">
                 {hero.primaryCta}
               </Button>
@@ -42,29 +48,54 @@ export function HeroSection() {
                 {hero.secondaryCta}
               </TrackedWhatsAppButton>
             </div>
-            <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-brand-dark/65">
-              <li className="inline-flex items-center gap-2"><RefreshCcw className="h-4 w-4 text-brand-red" /> Reforma</li>
-              <li className="inline-flex items-center gap-2"><ShoppingBag className="h-4 w-4 text-brand-red" /> Venda</li>
-              <li className="inline-flex items-center gap-2"><Building2 className="h-4 w-4 text-brand-red" /> Empresas e particulares</li>
+            <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-brand-dark/65">
+              <li className="inline-flex items-center gap-2">
+                <RefreshCcw className="h-4 w-4 text-brand-red" /> Reforma
+              </li>
+              <li className="inline-flex items-center gap-2">
+                <ShoppingBag className="h-4 w-4 text-brand-red" /> Venda
+              </li>
+              <li className="inline-flex items-center gap-2">
+                <Building2 className="h-4 w-4 text-brand-red" /> Empresas e particulares
+              </li>
             </ul>
           </AnimateIn>
 
-          <AnimateIn className="relative min-h-[34rem] lg:min-h-[42rem]">
-            <div className="absolute left-[4%] top-[11%] z-10 w-[39%] overflow-hidden rounded-[2rem] bg-white shadow-[0_28px_80px_rgba(32,25,26,0.13)]">
-              <Image src="/media/portfolio/page-04-image-02.png" alt="Cadeiras de escritório renovadas pela JMartins" width={548} height={692} className="aspect-[4/5] h-auto w-full object-cover" priority sizes="(max-width: 1024px) 40vw, 18vw" />
+          <AnimateIn className="relative">
+            <figure className="relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-brand-light shadow-[0_28px_80px_rgba(32,25,26,0.16)]">
+              <Image
+                src="/media/illustrative/cadeiras-ambiente.webp"
+                alt="Composição ilustrativa com quatro cadeiras estofadas em ambiente contemporâneo"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 55vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-brand-dark/55 to-transparent" />
+              <figcaption className="absolute bottom-4 left-4 rounded-full bg-white/90 px-3 py-1.5 text-xs font-semibold text-brand-dark/70 shadow-sm backdrop-blur">
+                Imagem ilustrativa · consulte modelos disponíveis
+              </figcaption>
+            </figure>
+
+            <div className="absolute -left-3 top-6 rounded-2xl border border-black/5 bg-white p-4 shadow-xl sm:-left-6 sm:top-10 sm:p-5">
+              <p className="font-heading text-xs font-bold uppercase tracking-[0.16em] text-brand-red">
+                Desde 1988
+              </p>
+              <p className="mt-1 text-sm font-semibold text-brand-dark">
+                Tradição que se renova
+              </p>
             </div>
-            <div className="absolute right-[2%] top-[3%] w-[45%] overflow-hidden rounded-[2rem] bg-white shadow-[0_28px_80px_rgba(32,25,26,0.12)]">
-              <Image src="/media/portfolio/page-04-image-03.png" alt="Poltrona reformada com novo revestimento" width={617} height={509} className="aspect-[5/4] h-auto w-full object-cover" priority sizes="(max-width: 1024px) 45vw, 21vw" />
-            </div>
-            <div className="absolute bottom-[7%] right-[10%] z-20 w-[43%] overflow-hidden rounded-[2rem] bg-white shadow-[0_30px_90px_rgba(32,25,26,0.16)]">
-              <Image src="/media/portfolio/page-04-image-05.png" alt="Banco estofado produzido pela JMartins" width={545} height={512} className="aspect-[1/1] h-auto w-full object-cover" sizes="(max-width: 1024px) 43vw, 20vw" />
-            </div>
-            <div className="absolute bottom-[2%] left-[12%] z-0 w-[36%] overflow-hidden rounded-[2rem] bg-white shadow-[0_22px_70px_rgba(32,25,26,0.10)]">
-              <Image src="/media/portfolio/page-04-image-07.png" alt="Poltrona antes da restauração" width={547} height={507} className="aspect-[1/1] h-auto w-full object-cover" sizes="(max-width: 1024px) 36vw, 17vw" />
-            </div>
-            <div className="absolute left-[37%] top-[48%] z-30 rounded-2xl border border-black/5 bg-white/95 px-5 py-4 shadow-lg backdrop-blur">
-              <p className="font-heading text-xs font-bold uppercase tracking-[0.16em] text-brand-red">Oficina própria</p>
-              <p className="mt-1 text-sm font-semibold text-brand-dark">Execução sem terceirização</p>
+
+            <div className="absolute -bottom-5 right-3 flex max-w-64 items-start gap-3 rounded-2xl border border-black/5 bg-white p-4 shadow-xl sm:right-8 sm:p-5">
+              <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-brand-red" />
+              <div>
+                <p className="font-heading text-xs font-bold uppercase tracking-[0.16em] text-brand-red">
+                  Oficina própria
+                </p>
+                <p className="mt-1 text-sm font-semibold text-brand-dark">
+                  Execução própria, sem terceirização
+                </p>
+              </div>
             </div>
           </AnimateIn>
         </div>
