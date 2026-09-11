@@ -9,6 +9,8 @@ export function JsonLd() {
     taxID: site.cnpj,
     description: site.description,
     url: site.url,
+    logo: `${site.url}/brand/logo-symbol.png`,
+    image: `${site.url}/brand/logo-symbol.png`,
     foundingDate: String(site.foundedYear),
     address: {
       "@type": "PostalAddress",

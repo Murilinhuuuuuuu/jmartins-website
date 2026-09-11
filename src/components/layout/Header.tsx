@@ -1,11 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { navigationLinks } from "@/lib/content/navigation";
 import { Button } from "@/components/ui/Button";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -45,14 +45,7 @@ export function Header() {
     >
       <div className={cn("container-premium relative z-50 flex items-center justify-between transition-[height] duration-300", isScrolled ? "h-16" : "h-20")}>
         <Link href="/" className="relative z-50 shrink-0" aria-label="JMartins Móveis - Início">
-          <Image
-            src="/brand/logo-full.png"
-            alt="JMartins Móveis"
-            width={827}
-            height={333}
-            className={cn("w-auto object-contain transition-[height] duration-300", isScrolled ? "h-10 md:h-11" : "h-11 md:h-14")}
-            priority
-          />
+          <BrandLogo compact={isScrolled} className="transition-all duration-300" />
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Navegação principal">

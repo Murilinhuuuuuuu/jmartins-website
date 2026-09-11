@@ -1,9 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Camera, MapPin, Phone } from "lucide-react";
 import { navigationLinks } from "@/lib/content/navigation";
 import { contact, site } from "@/lib/content/site";
 import { Container } from "@/components/ui/Container";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -13,13 +13,7 @@ export function Footer() {
       <Container className="section-padding">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
-            <Image
-              src="/brand/logo-full.png"
-              alt="JMartins Móveis"
-              width={827}
-              height={333}
-              className="h-14 w-auto object-contain brightness-0 invert"
-            />
+            <BrandLogo inverse />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">
               {site.tagline}
             </p>

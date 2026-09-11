@@ -24,6 +24,11 @@ export const metadata: Metadata = {
   description: seo.description,
   keywords: seo.keywords,
   metadataBase: new URL(site.url),
+  icons: {
+    icon: [{ url: "/brand/logo-symbol.png", type: "image/png", sizes: "244x166" }],
+    shortcut: "/brand/logo-symbol.png",
+    apple: "/brand/logo-symbol.png",
+  },
   alternates: { canonical: "/" },
   openGraph: {
     title: seo.title,
