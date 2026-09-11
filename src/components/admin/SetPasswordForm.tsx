@@ -22,14 +22,49 @@ export function SetPasswordForm() {
     let active = true;
 
     const checkSession = async () => {
-      const { data } = await supabase.auth.getSession();
+      const currentUrl = new URL(window.location.href);
+      const authError = currentUrl.searchParams.get("error_description");
+      const code = currentUrl.searchParams.get("code");
+      const hash = new URLSearchParams(currentUrl.hash.replace(/^#/, ""));
+      const accessToken = hash.get("access_token");
+      const refreshToken = hash.get("refresh_token");
+
+      if (authError) {
+        if (!active) return;
+        setMessage("Este link expirou ou já foi utilizado. Solicite um novo link na tela de acesso.");
+        return;
+      }
+
+      if (code) {
+        const { error } = await supabase.auth.exchangeCodeForSession(code);
+        if (error && active) {
+          setMessage("Não foi possível validar este link neste navegador. Solicite outro link e abra-o no mesmo aparelho.");
+          return;
+        }
+      } else if (accessToken && refreshToken) {
+        const { error } = await supabase.auth.setSession({
+          access_token: accessToken,
+          refresh_token: refreshToken,
+        });
+        if (error && active) {
+          setMessage("Este link expirou ou já foi utilizado. Solicite um novo link na tela de acesso.");
+          return;
+        }
+      }
+
+      const { data, error } = await supabase.auth.getSession();
       if (!active) return;
-      setReady(Boolean(data.session));
+      const hasSession = Boolean(data.session) && !error;
+      setReady(hasSession);
       setMessage(
-        data.session
+        hasSession
           ? "Convite confirmado. Crie sua senha para acessar o painel."
           : "Este link é inválido ou expirou. Solicite um novo link na tela de acesso.",
       );
+
+      if (hasSession && (code || currentUrl.hash)) {
+        window.history.replaceState({}, "", currentUrl.pathname);
+      }
     };
 
     const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
